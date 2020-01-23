@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" name="name" id="name">
+        <input type="text" name="github" id="github">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        let form = document.getElementById('form');
+
+        form.onsubmit = (event)=>{ 
+            event.preventDefault(); //para prevenir a página de atualizar e perder os dados
+
+            //pegando os valores do formulário
+            let nameProfessional = document.getElementById('name').value; //para pegar o valor que está no input name. Quando é um valor dentro de uma div, é textcontent
+            let githubProfessional = document.getElementById('github').value;
+
+            let config = { //criar um objeto com {}
+                method:"POST",
+                body: JSON.stringify({name:nameProfessional, github:githubProfessional}) //name do input. Os dois pontos é para atribuir na hora de criar um objeto
+            }; 
+
+            //primeiro o endereço que faz a solicitação depois as configurações (objeto config)
+            fetch('http://localhost:8000/api/professionals', config)
+            .then(function(response){
+                return response.json();
+            }).then(function(json){
+                console.log(json);
+            })
+
+
+        }
+    
+    </script>
+</body>
+</html>
