@@ -12,7 +12,7 @@ class Professional extends Model
 
     public function technologies(){
 
-        return $this->hasMany('Technologies', 'professionals_has_technologies', 'professionals_id', 'technologies_id'); //primeira foreign é do model desse arquivo
+        return $this->hasMany(Technology::class, 'professionals_has_technologies', 'professionals_id', 'technologies_id'); //primeira foreign é do model desse arquivo
 
     }
 }
