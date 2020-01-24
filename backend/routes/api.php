@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/professionals', 'ProfessionalController@listProfessionals');
 
-Route::post('/professionals', 'ProfessionalController@createProfessionals')
+Route::post('/professionals', 'ProfessionalController@createProfessionals');
 
