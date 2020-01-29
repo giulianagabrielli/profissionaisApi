@@ -14,7 +14,7 @@ class ProfessionalController extends Controller
         $listProfessionals = Professional::all();
 
         return response()->json($listProfessionals);
-
+        //$listProfessionals->technologies
     }
 
     public function createProfessionals(Request $request){
