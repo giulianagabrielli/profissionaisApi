@@ -33,8 +33,8 @@
                 body: JSON.stringify({name:nameProfessional, github:githubProfessional}) //objetos name, github e technology e os inputs do formulário. Os dois pontos é para atribuir na hora de criar um objeto. Tem que converter para JSON, não tá para ler objeto.
             }; 
 
-            //Consumindo api. Primeiro o endereço que faz a solicitação depois as configurações (objeto config)
-            fetch('http://localhost:8000/api/professionals', config)
+            //Consumindo api. Primeiro o endereço que faz a solicitação depois as configurações (objeto config). Por padrão, o método é get
+            fetch('http://localhost:8000/api/professionals', config) //Fetch é uma promessa.
             .then(function(response){ //recebendo a resposta
                 return response.json(); //pega a resposta e extraia o Json
             }).then(function(json){ //manipulando a resposta e devolvendo o json
